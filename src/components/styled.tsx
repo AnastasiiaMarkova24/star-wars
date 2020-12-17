@@ -1,4 +1,4 @@
-import { Layout, Divider } from 'antd';
+import { Layout } from 'antd';
 import styled from 'styled-components';
 
 const { Content } = Layout;
@@ -45,4 +45,8 @@ export const FilmTitle = styled.h3`
 export const OtherFilmInfo = styled.div`
   display: flex;
   flex-direction: column;
+`;
+
+export const Info = styled.h5`
+  color: #bbe6e6;
 `;

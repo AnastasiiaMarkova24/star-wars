@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import galaxy from '../images/galaxy.svg';
 import { ApplicationState } from '../types/app';
-import { MainLayout, Container, Galaxy, Title, Film, Chapter, FilmTitle, OtherFilmInfo } from './styled';
+import { MainLayout, Container, Galaxy, Title, Film, Chapter, FilmTitle, OtherFilmInfo, Info } from './styled';
 import * as Films from '../store/films-reducer';
 import { IFilm, IFilmsActions, IFilmsState } from '../types/films';
 import LoadingOverlay from 'react-loading-overlay';
@@ -56,8 +56,7 @@ class Home extends Component<IFilmsState & IFilmsActions> {
                     <Film key={`fav_film_${index}`}>
                       {this.renderFilmTitle(film)}
                       <OtherFilmInfo>
-                        <span>produced by {film.producer}</span>
-                        <span>created at {moment(film.created).format('LL')}</span>
+                        <Info>created at {moment(film.created).format('LL')}</Info>
                       </OtherFilmInfo>
                     </Film>
                   ))
