@@ -1,5 +1,6 @@
 import { Layout } from 'antd';
 import styled from 'styled-components';
+import { COLORS } from './colors';
 
 const { Content } = Layout;
 
@@ -11,12 +12,12 @@ export const Container = styled(Content)`
   display: flex;
   flex-direction: column;
   font-family: cursive;
-  background: #1f2121;
+  background: ${COLORS.DARK_GREY};
   padding: 0 24px;
 `;
 
 export const Title = styled.h1`
-  color: #00ffff;
+  color: ${COLORS.BLUE};
   font-weight: bold;
   margin: 24px auto;
   text-align: center;
@@ -34,12 +35,12 @@ export const Film = styled.div`
 `;
 
 export const Chapter = styled.h4`
-  color: #c5316ed9 !important;
+  color: ${COLORS.PINK} !important;
   font-size: 24px !important;
 `;
 
 export const FilmTitle = styled.h3`
-  color: #71c5ca;
+  color: ${COLORS.GREEN};
 `;
 
 export const OtherFilmInfo = styled.div`
@@ -48,5 +49,5 @@ export const OtherFilmInfo = styled.div`
 `;
 
 export const Info = styled.h5`
-  color: #bbe6e6;
+  color: ${COLORS.LIGHT_GREEN};
 `;
