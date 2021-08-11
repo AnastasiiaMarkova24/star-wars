@@ -3,7 +3,7 @@ import { Moment } from "moment";
 export interface IFilmsState {
     isLoading: boolean;
     films: IFilm[];
-    favouriteFilms: number[];
+    favouriteFilmIds: number[];
 }
 
 export interface IFilm {

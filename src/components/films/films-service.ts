@@ -1,6 +1,6 @@
-import { FavouriteFilms } from "../constants/films";
-import { IRestResponse } from "../types/app";
-import { IFilm } from "../types/films";
+import { FavouriteFilms } from "../../asserts/constants/films";
+import { IRestResponse } from "../../asserts/types/app";
+import { IFilm } from "../../asserts/types/films";
 
 class FilmsService {
     loadPlanets = (): Promise<IRestResponse<IFilm[]>> => {
@@ -25,8 +25,8 @@ class FilmsService {
             });
     }
 
-    saveFilmsAsFavourite = (favouriteFilms: number[]) => {
-        localStorage.setItem(FavouriteFilms, JSON.stringify(favouriteFilms));
+    saveFilmsAsFavourite = (favouriteFilmIds: number[]) => {
+        localStorage.setItem(FavouriteFilms, JSON.stringify(favouriteFilmIds));
     }
 
     getFavouriteFilms = (): number[] => {

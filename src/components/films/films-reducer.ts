@@ -1,15 +1,15 @@
 import { Reducer } from "redux";
-import { FilmsActionTypes } from "../constants/films";
-import FilmService from "../services/films-service";
-import { IFilm, IFilmsActions, IFilmsState } from "../types/films";
-import { AppThunkAction } from "../types/app";
+import { FilmsActionTypes } from "../../asserts/constants/films";
+import FilmService from "./films-service";
+import { IFilm, IFilmsActions, IFilmsState } from "../../asserts/types/films";
+import { AppThunkAction } from "../../asserts/types/app";
 import { notification } from "antd";
 
 let filmService = new FilmService();
 const initialState: IFilmsState = {
     isLoading: false,
     films: [],
-    favouriteFilms: filmService.getFavouriteFilms()
+    favouriteFilmIds: filmService.getFavouriteFilms()
 }
 
 const setIsLoading = (isLoading: boolean) => ({ type: FilmsActionTypes.setIsLoading, payload: isLoading });
@@ -56,7 +56,7 @@ export const reducer: Reducer<IFilmsState, FilmsAction> = (state = initialState,
         }
         case FilmsActionTypes.markAsFavourite: {
             const episodeId = action.payload as number;
-            let favouriteFilmsCopy = [ ...state.favouriteFilms ];
+            let favouriteFilmsCopy = [ ...state.favouriteFilmIds ];
 
             if (favouriteFilmsCopy.find(f => f === episodeId)) {
                 favouriteFilmsCopy = favouriteFilmsCopy.filter(f => f !== episodeId);
@@ -68,7 +68,7 @@ export const reducer: Reducer<IFilmsState, FilmsAction> = (state = initialState,
 
             return {
                 ...state,
-                favouriteFilms: favouriteFilmsCopy
+                favouriteFilmIds: favouriteFilmsCopy
             }
         }
         default:
